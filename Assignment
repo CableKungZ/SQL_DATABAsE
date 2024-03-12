@@ -1,0 +1,62 @@
+select * from school;
+insert into school(schoolID,schName)
+values		('S01','Machine'),
+			('S02','Medical'),
+			('S03','Engineer'),
+            ('S04','Physical'),
+            ('S05','Chemical');
+            
+select * from subject;
+insert into subject(subjectID,subjectName)
+values		('Sub_01','COE100'),
+			('Sub_02','COE101'),
+            ('Sub_03','GEN123'),
+            ('Sub_04','GEN132'),
+            ('Sub_05','GEN101');
+            
+select * from lecturer;
+insert into lecturer(lectureID,lectureName)
+values		('Lec_01','Comuputer'),
+			('Lec_02','English'),
+            ('Lec_03','Thai'),
+            ('Lec_04','Math01'),
+            ('Lec_05','Math02');
+
+select * from major;
+insert into major(majorID,majorName)
+values		('Major_01','COE'),
+			('Major_02','CPE'),
+			('Major_03','NSE'),
+            ('Major_04','CEP'),
+            ('Major_05','Doctor');
+
+select * from major;
+UPDATE major SET schoolID = 'S01' WHERE majorID = 'Major_01';
+UPDATE major SET schoolID = 'S02' WHERE majorID = 'Major_02';
+UPDATE major SET schoolID = 'S03' WHERE majorID = 'Major_03';
+UPDATE major SET schoolID = 'S04' WHERE majorID = 'Major_04';
+UPDATE major SET schoolID = 'S05' WHERE majorID = 'Major_05';
+UPDATE major SET lectureID = 'Lec_01' WHERE majorID = 'Major_01';
+UPDATE major SET lectureID = 'Lec_02' WHERE majorID = 'Major_02';
+UPDATE major SET lectureID = 'Lec_03' WHERE majorID = 'Major_03';
+UPDATE major SET lectureID = 'Lec_04' WHERE majorID = 'Major_04';
+UPDATE major SET lectureID = 'Lec_05' WHERE majorID = 'Major_05';
+select * from lecturer;
+UPDATE lecturer SET majorID = 'Major_01' WHERE lectureID = 'Lec_01';
+UPDATE lecturer SET majorID = 'Major_02' WHERE lectureID = 'Lec_02';
+UPDATE lecturer SET majorID = 'Major_03' WHERE lectureID = 'Lec_03';
+UPDATE lecturer SET majorID = 'Major_04' WHERE lectureID = 'Lec_04';
+UPDATE lecturer SET majorID = 'Major_05' WHERE lectureID = 'Lec_05';
+
+select * from teaching;
+INSERT INTO teaching (subjectID, lectureID)
+VALUES  ('S01', 'Lec_01'),
+        ('S01', 'Lec_02'),
+        ('S02', 'Lec_04'),
+        ('S02', 'Lec_05'),
+        ('S03', 'Lec_01'),
+        ('S04', 'Lec_02'),
+        ('S05', 'Lec_05'),
+        ('S06', 'Lec_03'),
+        ('S07', 'Lec_01');
+
