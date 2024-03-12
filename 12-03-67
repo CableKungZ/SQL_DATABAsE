@@ -1,0 +1,42 @@
+create database  SchoolTeaching;
+use SchoolTeaching;
+
+
+CREATE TABLE if not exists school(
+	schoolID varchar(10) Not null,
+    schName varchar(255) Not null,
+    Primary key(schoolID)
+    );
+CREATE TABLE if not exists subject(
+	subjectID varchar(10) Not null,
+    subjectName varchar(255) Not null,
+    Primary key(subjectID)
+    );  
+
+CREATE TABLE if not exists lecturer(
+	lectureID varchar(10) Not null,
+    lectureName varchar(255) Not null,
+    majorID varchar(10) Not null,
+    Primary key(lectureID)
+    );
+    
+CREATE TABLE if not exists major(
+	majorID varchar(10) Not null,
+    majorName varchar(255) Not null,
+    schoolID varchar(10) Not null,
+    lectureID varchar(255) Not null,
+    Primary key(majorID)
+);
+    
+    
+CREATE TABLE IF NOT EXISTS teaching (
+    subjectID VARCHAR(10) NOT NULL,
+    lectureID VARCHAR(255) NOT NULL,
+    FOREIGN KEY (subjectID) REFERENCES subject(subjectID),
+    FOREIGN KEY (lectureID) REFERENCES lecturer(lectureID),
+    PRIMARY KEY (subjectID, lectureID)
+);
+
+lectureIDALTER TABLE major
+ADD FOREIGN KEY (schoolID) REFERENCES school(schoolID),
+ADD FOREIGN KEY (lectureID) REFERENCES lecturer(lectureID);
