@@ -37,6 +37,6 @@ CREATE TABLE IF NOT EXISTS teaching (
     PRIMARY KEY (subjectID, lectureID)
 );
 
-lectureIDALTER TABLE major
+ALTER TABLE major
 ADD FOREIGN KEY (schoolID) REFERENCES school(schoolID),
 ADD FOREIGN KEY (lectureID) REFERENCES lecturer(lectureID);
